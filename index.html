@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanny Tally | Playful Early Language Learning</title>
+  <meta name="description" content="Joyful early language learning for babies, toddlers, and preschoolers with healthy food vocabulary, gentle songs, and free printables in Spanish, German, and English.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #FF7B54;
+      --primary-soft: #FFB26B;
+      --accent-yellow: #FFD966;
+      --accent-teal: #4D96FF;
+      --accent-green: #6BCB77;
+      --bg-cream: #FFFDF9;
+      --card-bg: #FFFFFF;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --radius-lg: 20px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--text-main);
+    }
+
+    /* Header */
+    header {
+      background: #FFF;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav { display: flex; gap: 1.5rem; align-items: center; }
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--primary); }
+
+    .btn-insta {
+      background: var(--primary);
+      color: #FFF !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Hero Section with Character Portrait */
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem 3rem;
+      background: linear-gradient(180deg, #FFF 0%, var(--bg-cream) 100%);
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-avatar {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 25px rgba(255,123,84,0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #FFE8E0;
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 650px; }
+
+    .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(255,123,84,0.3);
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: #FFF;
+      color: var(--text-main);
+      border: 2px solid #EAEAEA;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #F0F0F0;
+      text-align: center;
+    }
+    .feature-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+    /* Printables Section */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-title h2 { font-size: 2rem; }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      border: none;
+      background: #EFEFEF;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .printable-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .printable-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      border: 1px solid #F0F0F0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-preview {
+      background: #FFF5EE;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .badge-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--accent-green);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    /* Flashcard Graphic Mockup */
+    .flashcard-mockup {
+      background: white;
+      border-radius: var(--radius-sm);
+      width: 100%;
+      height: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      border: 2px dashed var(--primary-soft);
+    }
+    .flashcard-mockup .emoji { font-size: 3.5rem; margin-bottom: 0.3rem; }
+    .flashcard-mockup .word { font-weight: 700; font-size: 1.4rem; color: var(--primary); }
+    .flashcard-mockup .subtext { color: var(--text-muted); font-size: 0.85rem; }
+
+    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-body h3 { margin-bottom: 0.5rem; }
+    .card-body p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; flex: 1; }
+
+    .audio-player {
+      background: #F8F9FA;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .audio-player button {
+      background: var(--primary);
+      border: none;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    /* About Section */
+    .about-box {
+      background: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    .about-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-soft);
+      flex-shrink: 0;
+      margin: 0 auto;
+    }
+    .about-content { flex: 1; min-width: 280px; }
+    .about-content h2 { margin-bottom: 1rem; }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #FFF;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    footer a { color: var(--primary-soft); }
+
+    /* Simple Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .modal-input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 1rem 0;
+      border: 1px solid #CCC;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .about-box { padding: 1.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <a href="#" class="logo">🍎 Nanny Tally</a>
+    <nav>
+      <a href="#printables">Printables</a>
+      <a href="#about">About</a>
+      <a href="https://instagram.com/nannytally" target="_blank" class="btn-insta">
+        <span>📸</span> @nannytally
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="nanny-tally.jpg" alt="Nanny Tally" class="hero-avatar">
+    <span class="hero-badge">Play · Sing · Learn</span>
+    <h1>Tasty Words & Healthy Bites for Little Ones</h1>
+    <p>Discover gentle songs, healthy food vocabulary, and free printable flashcards for babies, toddlers, and preschoolers in <strong>Spanish</strong>, <strong>German</strong>, and <strong>English</strong>.</p>
+    <div class="hero-buttons">
+      <a href="#printables" class="btn-primary">Explore Food Printables</a>
+      <a href="https://instagram.com/nannytally" target="_blank" class="btn-secondary">Watch Video Reels</a>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Value Pillars -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="icon">🥑</div>
+        <h3>Healthy First Words</h3>
+        <p>Fun visual flashcards encouraging healthy eating habits through playful vocabulary.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🗣️</div>
+        <h3>Spanish First</h3>
+        <p>Focusing on Spanish pronunciation with support for German and English learners.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🖨️</div>
+        <h3>Free Printables</h3>
+        <p>A4 printable matching games and flashcard sets ready to download for home play.</p>
+      </div>
+    </section>
+
+    <!-- Printables Section -->
+    <section id="printables">
+      <div class="section-title">
+        <h2>Healthy Food Printables</h2>
+        <p>Interactive language cards focusing on healthy eating for ages 0–4.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCards('all')">All Food Packs</button>
+        <button class="filter-btn" onclick="filterCards('fruits')">Fruits & Veggies</button>
+        <button class="filter-btn" onclick="filterCards('meals')">Meals & Breakfast</button>
+        <button class="filter-btn" onclick="filterCards('snacks')">Healthy Snacks</button>
+      </div>
+
+      <!-- Printable Cards Grid -->
+      <div class="printable-grid">
+
+        <!-- Card 1: Spanish Fruits -->
+        <div class="printable-card" data-category="fruits">
+          <div class="card-preview">
+            <span class="badge-tag">Spanish Lead</span>
+            <div class="flashcard-mockup">
+              <div class="emoji">🍎</div>
+              <div class="word">la manzana</div>
+              <div class="subtext">EN: Apple · DE: Der Apfel</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Yummy Fruits (Las Frutas)</h3>
+            <p>Learn fresh, colorful fruits in Spanish! Set includes <em>la manzana, el plátano, la fresa</em> and <em>la naranja</em>.</p>
+
+            <!-- Interactive Audio Preview -->
+            <div class="audio-player">
+              <button onclick="speakWord('La manzana, el plátano, la fresa')">▶</button>
+              <span style="font-size:0.85rem; font-weight:600;">Listen in Spanish</span>
+            </div>
+
+            <div class="card-footer">
+              <span style="font-size:0.85rem; color:var(--text-muted);">PDF · A4 Format</span>
+              <button class="btn-primary" style="padding:0.5rem 1rem; font-size:0.9rem;" onclick="openModal('Yummy Fruits')">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Vegetables -->
+        <div class="printable-card" data-category="fruits">
+          <div class="card-preview">
+            <span class="badge-tag" style="background:var(--accent-teal);">Popular</span>
+            <div class="flashcard-mockup">
+              <div class="emoji">🥦</div>
+              <div class="word">el brócoli</div>
+              <div class="subtext">EN: Broccoli · DE: Der Brokkoli</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Garden Veggies (Las Verduras)</h3>
+            <p>Make vegetables fun! A vibrant set featuring <em>el brócoli, la zanahoria, el tomate</em> and <em>el aguacate</em>.</p>
+
+            <div class="audio-player">
+              <button onclick="speakWord('El brócoli, la zanahoria, el aguacate')">▶</button>
+              <span style="font-size:0.85rem; font-weight:600;">Listen in Spanish</span>
+            </div>
+
+            <div class="card-footer">
+              <span style="font-size:0.85rem; color:var(--text-muted);">PDF · A4 Format</span>
+              <button class="btn-primary" style="padding:0.5rem 1rem; font-size:0.9rem;" onclick="openModal('Garden Veggies')">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Healthy Breakfast -->
+        <div class="printable-card" data-category="meals snacks">
+          <div class="card-preview">
+            <div class="flashcard-mockup">
+              <div class="emoji">🥣</div>
+              <div class="word">el desayuno</div>
+              <div class="subtext">EN: Breakfast · DE: Das Frühstück</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Healthy Breakfast (El Desayuno)</h3>
+            <p>Start the day with warm vocabulary: <em>la avena, la leche, el agua</em> and <em>el pan integral</em>.</p>
+
+            <div class="audio-player">
+              <button onclick="speakWord('El desayuno, la avena, el agua')">▶</button>
+              <span style="font-size:0.85rem; font-weight:600;">Listen in Spanish</span>
+            </div>
+
+            <div class="card-footer">
+              <span style="font-size:0.85rem; color:var(--text-muted);">PDF · A4 Format</span>
+              <button class="btn-primary" style="padding:0.5rem 1rem; font-size:0.9rem;" onclick="openModal('Healthy Breakfast')">Download</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-box">
+      <img src="nanny-tally.jpg" alt="Nanny Tally" class="about-avatar">
+      <div class="about-content">
+        <h2>Little Words, Healthy Moments</h2>
+        <p>Hi! I'm <strong>Nanny Tally</strong>. I believe early language learning works best when tied to daily habits—like enjoying a healthy meal together!</p>
+        <p style="margin-top:0.5rem;">Through simple songs, playful visual cards, and multi-language support (<strong>Spanish, German, and English</strong>), I help families build word confidence and healthy habits from early childhood.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Email Download Modal -->
+  <div class="modal" id="downloadModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <h3 style="margin-bottom:0.5rem;">Download Free Printable</h3>
+      <p style="font-size:0.95rem; color:var(--text-muted);">Where should we send your printable PDF?</p>
+      <input type="email" class="modal-input" placeholder="Enter your email address" id="userEmail" required>
+      <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" onclick="submitDownload()">Get Download Link</button>
+      <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.8rem;">Instant download. No spam ever.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Follow along on Instagram for daily songs & playful tips: <a href="https://instagram.com/nannytally" target="_blank">@nannytally</a></p>
+    <p style="font-size:0.85rem; margin-top:1rem; opacity:0.7;">&copy; 2026 Nanny Tally. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Audio synthesis for instant pronunciation previews in Spanish
+    function speakWord(text) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+        utterance.rate = 0.85; // Slightly slower for children
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("Audio preview unavailable on this browser.");
+      }
+    }
+
+    // Filter cards
+    function filterCards(category) {
+      const cards = document.querySelectorAll('.printable-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal controls
+    let selectedItem = '';
+    function openModal(itemName) {
+      selectedItem = itemName;
+      document.getElementById('downloadModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('downloadModal').style.display = 'none';
+    }
+
+    function submitDownload() {
+      const email = document.getElementById('userEmail').value;
+      if (email && email.includes('@')) {
+        alert('Thank you! Your ' + selectedItem + ' printable PDF is ready for download.');
+        closeModal();
+      } else {
+        alert('Please enter a valid email address.');
+      }
+    }
+  </script>
+</body>
+</html>
